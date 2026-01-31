@@ -26,4 +26,4 @@ function convertation(summ, valuteFrom, valuteTo) {
   return valFrom && valTo ? (summ / valFrom) * valTo : null;
 }
 
-console.log(convertation(100, "usd", "rub"));
+console.log(convertation(100, "usd", "en"));
