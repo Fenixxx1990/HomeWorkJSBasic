@@ -1,13 +1,28 @@
-const balance = 10000;
-const bonusBalance = 1000;
-const isBanned = false;
-const isExist = false;
-const isSelling = true;
+function getCredit(age, isJobe = false) {
+  if (age > 24 && isJobe) {
+    return 500;
+  } else if (age > 24) {
+    return 100;
+  } else {
+    return 0;
+  }
+}
 
-console.log(
-  (balance > 1000 || bonusBalance > 100) && !isBanned && !isExist && isSelling,
-);
+function canBuy(productPrice, age, isJobe, money) {
+  return getCredit(age, isJobe) + money >= productPrice;
+}
 
-console.log((!"" && "Yes") || !("No" && "false"));
-console.log(!"" && true && "Yes" && Boolean("true") && "PS");
-console.log((true && "d") ?? "");
+console.log(canBuy(2000, 20, true, 1500));
+
+function a() {
+  return c();
+}
+function b() {
+  return "Yes";
+}
+function c() {
+  return b;
+}
+a();
+
+console.log(a());
