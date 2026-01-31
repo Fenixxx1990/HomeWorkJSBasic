@@ -1,20 +1,20 @@
 const language = prompt("Введите название языка");
 switch (language.toLocaleLowerCase()) {
-  case "русский":
-    alert("Привет!");
+  case "ru":
+    console.log("Привет!");
     break;
-  case "английский":
-    alert("Hello!");
+  case "en":
+    console.log("Hello!");
     break;
-  case "испанский":
-    alert("Hola!");
+  case "es":
+    console.log("Hola!");
     break;
-  case "немецкий":
-    alert("Hallo!");
+  case "de":
+    console.log("Hallo!");
     break;
-  case "французский":
-    alert("Bonjour!");
+  case "fr":
+    console.log("Bonjour!");
     break;
   default:
-    alert("Я не знаю этого языка!");
+    console.log("Я не знаю этого языка!");
 }
