@@ -1,24 +1,56 @@
-// Дан произвольный url вида - <https://purpleschool.ru/course/javascript>
+const startBalance = 100;
+const operations = [1000, -700, 300, -500, 10000];
 
-// Нужно сделать функцию, которая выводит в консоль:
-
-// Протокол (https)
-// Доменное имя (purpleschool.ru)
-// Путь внутри сайта (/course/javascript)
-
-function getUrl(url) {
-  const [protocol, _, host, ...path] = url.split("/");
-  if (protocol === "https:" || protocol === "http:") {
-    if (!host.includes(".")) {
-      return;
-    }
-    console.log(`Протоколо: ${protocol.split(":")[0]}`);
-    console.log(`Доменное имя:  ${host}`);
-    console.log(`Путь внутри сайта: ${path.join("/")}`);
+function getBalance(startBalance, operations) {
+  let balance = startBalance;
+  for (let i = 0; i < operations.length; i++) {
+    balance += operations[i];
   }
+  return balance;
 }
 
-getUrl("https://purpleschool.ru/course/javascript");
+console.log(getBalance(startBalance, operations));
 
-let arr = ["1", "2", "3", "4"];
-console.log(arr.slice(2, -1));
+function minusBalance(startBalance, operations) {
+  let balance = startBalance;
+  for (let i = 0; i < operations.length; i++) {
+    balance += operations[i];
+    if (balance < 0) {
+      return false; //`На счету недостаточно средств для проведения операции! ${operations[i]}`;
+    }
+  }
+  return true;
+}
+
+console.log(minusBalance(startBalance, operations));
+
+function avarage(operations) {
+  let positive = 0;
+  let negative = 0;
+  let p = 0;
+  let n = 0;
+  for (const money of operations) {
+    if (money > 0) {
+      positive += money;
+      p++;
+    }
+    if (money < 0) {
+      negative += money;
+      n++;
+    }
+  }
+  return [positive / p, negative / n];
+}
+
+console.log(avarage(operations));
+
+const numbers = [3, 7, 2, 9, 1];
+
+// Ваш код здесь
+let maxNumber = 0;
+for (const el of numbers) {
+  if (el > maxNumber) {
+    maxNumber = el;
+  }
+}
+console.log(maxNumber);
