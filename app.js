@@ -1,56 +1,38 @@
-const startBalance = 100;
-const operations = [1000, -700, 300, -500, 10000];
+// function power(num) {
+//   return function (pow) {
+//     return num ** pow;
+//   };
+// }
 
-function getBalance(startBalance, operations) {
-  let balance = startBalance;
-  for (let i = 0; i < operations.length; i++) {
-    balance += operations[i];
-  }
-  return balance;
+// const power = (pow) => (num) => num ** pow;
+
+// const powerOfTwo = power(2);
+// console.log(powerOfTwo(5));
+// console.log(powerOfTwo(10));
+
+// const powerOfTrhee = power(3);
+// console.log(powerOfTrhee(5));
+
+// console.log(power(5)(4));
+
+function createValidator(validatorFn) {
+  return (element) => validatorFn(ele) || null;
 }
 
-console.log(getBalance(startBalance, operations));
+// Тестовые функции-валидаторы
+const isPositive = function (num) {
+  return num >= 0 ? num : null;
+};
 
-function minusBalance(startBalance, operations) {
-  let balance = startBalance;
-  for (let i = 0; i < operations.length; i++) {
-    balance += operations[i];
-    if (balance < 0) {
-      return false; //`На счету недостаточно средств для проведения операции! ${operations[i]}`;
-    }
-  }
-  return true;
-}
+const isNonEmptyString = function (str) {
+  return str && typeof str === "string" ? str : null;
+};
 
-console.log(minusBalance(startBalance, operations));
+// Тестирование
+const positiveValidator = createValidator(isPositive);
+const stringValidator = createValidator(isNonEmptyString);
 
-function avarage(operations) {
-  let positive = 0;
-  let negative = 0;
-  let p = 0;
-  let n = 0;
-  for (const money of operations) {
-    if (money > 0) {
-      positive += money;
-      p++;
-    }
-    if (money < 0) {
-      negative += money;
-      n++;
-    }
-  }
-  return [positive / p, negative / n];
-}
-
-console.log(avarage(operations));
-
-const numbers = [3, 7, 2, 9, 1];
-
-// Ваш код здесь
-let maxNumber = 0;
-for (const el of numbers) {
-  if (el > maxNumber) {
-    maxNumber = el;
-  }
-}
-console.log(maxNumber);
+console.log(positiveValidator(5));
+console.log(positiveValidator(-3));
+console.log(stringValidator("hello"));
+console.log(stringValidator(""));
