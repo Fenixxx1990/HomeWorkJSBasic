@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Work</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body style="background-color: #1c1b21; text-align: center">
+    <img class="img" src="unnamed.jpg" alt="" />
+    <div class="panel">Калькулятор</div>
+    <div class="inputArea">
+      <label class="label" for="inp1">Переменная a</label>
+      <label class="label" for="inp2">Переменная b</label>
+      <input type="number" class="input" name="inp1" value="0" />
+      <input type="number" class="input" name="inp" value="0" />
+    </div>
+
+    <div class="buttons">
+      <button class="button" onclick="addition()">Сложение</button>
+      <button class="button" onclick="division()">Деление</button>
+      <button class="button" onclick="subtraction()">Вычитание</button>
+      <button class="button" onclick="multiplication()">Умножение</button>
+    </div>
+    <div class="panel">Результат</div>
+    <div class="panel"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
