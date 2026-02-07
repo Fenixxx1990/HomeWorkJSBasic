@@ -1,52 +1,69 @@
 "use strict";
 
-// const userInfo = {
-//   balance: 0,
-//   operations: 0,
-//   increase(sum) {
-//     this.balance += sum;
-//     this.operations++;
-//   },
-// };
-
-// function user() {
-//   const userObj = {
-//     balance: 0,
-//     operations: 0,
-//     increase(sum) {
-//       this.balance += sum;
-//       this.operations++;
-//     },
-//   };
-//   return function () {
-//     return userObj;
-//   };
+// function submitForm() {
+//   const input = document.querySelector(".input").value;
+//   console.log(input);
+//   if (!input) {
+//     return;
+//   }
+//   document.querySelector(".panel").innerText = input;
+//   document.querySelector(".input").value = "";
+//   document.querySelector(".notification").classList.add("notification_active");
+//   const textString = JSON.stringify({ text: input });
+//   localStorage.setItem("text", textString);
+//   // console.log(document.querySelector(".notification").getAttribute("class"));
+//   // document.querySelector(".notification").setAttribute("key", "1");
+//   // console.log(document.querySelector(".notification").getAttribute("key"));
 // }
 
-// const user1 = user();
-// user1().increase(100);
-// user1().increase(200);
-// console.log(user1());
-// const user2 = user();
-// user2().increase(100);
-// console.log(user2());
+// function inputChanged(e) {
+//   if (e.code == "Enter") {
+//     submitForm();
+//   }
+// }
+// const pannelText = "Панель";
+// const buttonText = "Кнопка";
+// const newElement = document.createElement("div");
+// newElement.setAttribute("user-id", "1");
+// newElement.classList.add("panel");
+// // newElement.innerText = "Click me";
+// newElement.innerHTML = `<button class="button">${buttonText}</button>`;
+// document.querySelector(".panel").appendChild(newElement);
+// document.querySelector(".test").appendChild(newElement);
 
-const calculator = {
-  total: 0,
-  addValues(a, b, c) {
-    return this.total + a + b + c;
-  },
-};
+// localStorage.setItem("token", "value");
+// localStorage.setItem("token", "valueasda");
+// localStorage.setItem("token2", "valasdfue");
 
-// Другой объект для применения метода
-const processor = {
-  total: 100,
-};
+// console.log(localStorage.getItem("token"));
+// console.log(localStorage.getItem("key"));
+// console.log(localStorage.getItem("token2"));
+// localStorage.clear();
 
-// Массив аргументов
-const values = [8, 12, 20];
+// const object = JSON.parse('{"name": "Vlad", "age": 20}');
 
-// Ваш код здесь - используйте apply для вызова метода
-const calc = calculator.addValues;
-console.log(calc.apply(processor, values));
-console.log(calc.apply(calculator, values));
+// console.log(object);
+
+// const str = JSON.stringify(object);
+
+// console.log(str);
+function exercise() {
+  const button = document.querySelector(".toggle-btn");
+  const element = document.querySelector(".content");
+  const input = document.querySelector(".input");
+  if (!button || !element) {
+    return;
+  }
+  input.addEventListener("keydown", (e) => {
+    if (e.code == "Enter" || e.code == "NumpadEnter") {
+      const inputValue = input.value;
+      if (!inputValue) {
+        return;
+      }
+      element.textContent = inputValue;
+      input.value = "";
+    }
+  });
+}
+exercise();
+localStorage.removeItem;
